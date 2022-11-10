@@ -1,0 +1,40 @@
+{{>layouts/header}}
+
+
+<table class="table">
+    <thead>
+    <tr>
+        <th scope="col">Id</th>
+        <th scope="col">Title</th>
+        <th scope="col">Content</th>
+    </tr>
+    </thead>
+    <tbody class="table-group-divider">
+    {{#articles}}
+        <tr>
+            {{#id}}
+                <th>{{id}}</th>
+            {{/id}}
+            {{^id}}
+                <th> null</th>
+            {{/id}}
+            {{#title}}
+                <td><a href="/articles/{{id}}">{{title}}</a></td>
+            {{/title}}
+            {{^title}}
+                <td><a href="/articles/{{id}}"> null </a></td>
+            {{/title}}
+            {{#contents}}
+                <td>{{contents}}</td>
+            {{/contents}}
+            {{^contents}}
+                <td> null </td>
+            {{/contents}}
+        </tr>
+    {{/articles}}
+    </tbody>
+</table>
+<a href="/articles/new" class="btn btn-secondary">New Article</a>
+<a href="/articles/list" class="btn btn-dark">Articles List</a>
+
+{{>layouts/footer}}
