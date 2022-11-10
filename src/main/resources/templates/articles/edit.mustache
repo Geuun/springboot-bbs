@@ -1,0 +1,21 @@
+{{>layouts/header}}
+
+{{#article}}
+    <form action="/articles/{{id}}/update" method="post">
+        <div class="mb-3">
+            <input type="hidden" name="id" value="{{id}}">
+            <label class="form-label">제목</label>
+            <input type="text" placeholder="Title" class="form-control" name="title" value="{{title}}">
+        </div>
+        <div class="mb-3">
+            <label class="form-label">내용</label>
+            <textarea class="form-control" placeholder="Contents" rows="3" name="contents">{{contents}}</textarea>
+        </div>
+        <button type="submit" class="btn btn-secondary">Edit</button>
+    </form>
+    <a href="/articles/{{id}}" class="btn btn-dark">back</a>
+
+
+{{/article}}
+
+{{>layouts/footer}}

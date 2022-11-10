@@ -60,4 +60,24 @@ public class ArticleController {
         log.info("generatedId: {}", savedArticle.getId());
         return String.format("redirect:/articles/%d", savedArticle.getId());
     }
+
+    @PostMapping("/{id}/edit")
+    public String editArticle(@PathVariable Long id, Model model) {
+        Optional<Article> optionalArticle = articleRepository.findById(id);
+        if(!optionalArticle.isEmpty()) {
+            model.addAttribute("article", optionalArticle.get());
+            return "articles/edit";
+        } else {
+            model.addAttribute("message", String.format("id:%d가 없습니다.", id));
+            return "errors/404error";
+        }
+    }
+    
+    @PostMapping("/{id}/update")
+    public String update(@PathVariable Long id, ArticleDto articleDto, Model model) {
+        log.info("title: {} contents: {}", articleDto.getTitle(), articleDto.getContents());
+        Article updatedArticle = articleRepository.save(articleDto.toEntity(id));
+        model.addAttribute("article", updatedArticle);
+        return String.format("redirect:/articles/%d", updatedArticle.getId());
+    }
 }
