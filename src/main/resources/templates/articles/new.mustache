@@ -1,21 +1,14 @@
 {{>layouts/header}}
-
 <form class="container" action="/articles/posts" method="post">
-
     <div class="mb-3">
         <label class="form-label">제목</label>
         <input type="text" placeholder="Title" class="form-control" name="title">
     </div>
-
     <div class="mb-3">
         <label class="form-label">내용</label>
         <textarea class="form-control" placeholder="Contents" rows="3" name="contents"></textarea>
     </div>
-
     <button type="submit" class="btn btn-secondary">Submit</button>
-
     <a href="/articles/list" class="btn btn-dark">back</a>
-
 </form>
-
 {{>layouts/footer}}
