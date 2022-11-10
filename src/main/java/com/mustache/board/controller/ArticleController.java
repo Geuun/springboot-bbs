@@ -53,7 +53,7 @@ public class ArticleController {
         return "articles/new";
     }
 
-    @PostMapping("/posts/")
+    @PostMapping("/posts")
     public String createArticle(ArticleDto articleDto) {
         log.info(articleDto.toString());
         Article savedArticle = articleRepository.save(articleDto.toEntity());
@@ -61,7 +61,7 @@ public class ArticleController {
         return String.format("redirect:/articles/%d", savedArticle.getId());
     }
 
-    @PostMapping("/{id}/edit")
+    @GetMapping("/{id}/edit")
     public String editArticle(@PathVariable Long id, Model model) {
         Optional<Article> optionalArticle = articleRepository.findById(id);
         if(!optionalArticle.isEmpty()) {
