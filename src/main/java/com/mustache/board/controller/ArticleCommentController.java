@@ -29,7 +29,13 @@ public class ArticleCommentController {
     @PostMapping("/{articleId}")
     public String addComment(@PathVariable Long articleId, ArticleCommentDto articleCommentDto, Model model) {
 
-
+//        log.info(articleCommentDto.toString());
+//        Article commentedArticle = articleRepository.findById(articleId).get();
+//        log.info(commentedArticle.toString());
+//        ArticleComment savedComment = articleCommentRepository.save(articleCommentDto.toEntity(commentedArticle));
+//        model.addAttribute("savedComment", savedComment);
+//        model.addAttribute("articleId", articleId);
+//        return String.format("redirect:/articles/%d", articleId);
 
 //        log.info(articleCommentDto.toString());
 //        Article commentedArticle = articleCommentDto.getArticle();
