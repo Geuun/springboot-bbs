@@ -3,7 +3,6 @@ package com.mustache.board.controller;
 import com.mustache.board.domain.dto.ArticleCommentDto;
 import com.mustache.board.domain.dto.ArticleDto;
 import com.mustache.board.domain.entity.Article;
-import com.mustache.board.domain.entity.ArticleComment;
 import com.mustache.board.repository.ArticleRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
@@ -88,12 +87,4 @@ public class ArticleController {
         articleRepository.deleteById(id);
         return "redirect:/articles/list";
     }
-
-//    @PostMapping("/{id}/comment")
-//    public String createComment(@PathVariable Long id, ArticleCommentDto articleCommentDto) {
-//        Optional<Article> articleDto = articleRepository.findById(id);
-//        List<ArticleCommentDto> commentDto = articleDto.getComments();
-//
-//
-//    }
 }
