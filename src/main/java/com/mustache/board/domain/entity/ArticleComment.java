@@ -20,7 +20,7 @@ public class ArticleComment {
     private String author; //댓글 작성자
     @Column
     private String comment; //댓글 내용
-    @ManyToOne
+    @ManyToOne // comment : article_id = Many : One
     @JoinColumn(name = "article_id")
     private Article article; // 게시물
 

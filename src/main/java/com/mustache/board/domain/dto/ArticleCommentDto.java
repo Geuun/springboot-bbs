@@ -3,17 +3,23 @@ package com.mustache.board.domain.dto;
 import com.mustache.board.domain.entity.Article;
 import com.mustache.board.domain.entity.ArticleComment;
 import lombok.Getter;
+import lombok.ToString;
 
 @Getter
-
+@ToString
 public class ArticleCommentDto {
-    private Long id;
-
-    private Article article;
     private String author;
     private String comment;
 
-    public ArticleComment toEntity() {
+    // Entity -> Dto
+
+    public ArticleCommentDto(String author, String comment) {
+        this.author = author;
+        this.comment = comment;
+    }
+
+    // Dto -> Entity
+    public ArticleComment toEntity(Article article) {
         return new ArticleComment(article, author, comment);
     }
 }

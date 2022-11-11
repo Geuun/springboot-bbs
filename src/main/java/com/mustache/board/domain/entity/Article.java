@@ -5,6 +5,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -21,7 +22,7 @@ public class Article {
     @Column(nullable = false)
     private String contents;
     @OneToMany(mappedBy = "article", fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)
-    private List<ArticleComment> articleComment;
+    private List<ArticleComment> articleComments = new ArrayList<>();
 
 
     public Article(String title, String content) {
