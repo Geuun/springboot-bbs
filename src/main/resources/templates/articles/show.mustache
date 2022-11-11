@@ -1,24 +1,29 @@
 {{>layouts/header}}
 {{#article}}
-    <div class="card" style="width: 18rem;">
-        <div class="card-body">
-            {{#title}}
-                <h5 class="card-title">{{title}}</h5>
-            {{/title}}
-            {{^title}}
-                <h5 class="card-title"> 제목이 없습니다. </h5>
-            {{/title}}
-            {{#contents}}
-                <p class="card-text">{{contents}}</p>
-            {{/contents}}
-            {{^contents}}
-                <p class="card-text"> 컨텐츠가 없습니다. </p>
-            {{/contents}}
-            <a href="/articles/{{id}}/edit" class="btn btn-dark">Edit</a>
-            <a href="/articles/{{id}}/delete" class="btn btn-danger">Delete</a>
+    <form>
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-lg-8">
+                <article>
+                    <!--header-->
+                    <header class="mb-4">
+                        <!--title-->
+                        <h1 class="fw-bolder mb-1">{{title}}</h1>
+                    </header>
+                    <!--content-->
+                    <section class="mb-5">
+                        {{contents}}
+                    </section>
+                </article>
+                <a href="/articles/{{id}}/edit" class="btn btn-dark">Edit</a>
+                <a href="/articles/{{id}}/delete" class="btn btn-danger">Delete</a>
+            </div>
         </div>
+        <a href="/articles/new" class="btn btn-secondary">New Article</a>
+        <a href="/articles/list" class="btn btn-dark">Articles List</a>
     </div>
-    <a href="/articles/new" class="btn btn-secondary">New Article</a>
-    <a href="/articles/list" class="btn btn-dark">Articles List</a>
+    </form>
 {{/article}}
+{{>articles/showcomment}}
+{{>articles/newcomment}}
 {{>layouts/footer}}

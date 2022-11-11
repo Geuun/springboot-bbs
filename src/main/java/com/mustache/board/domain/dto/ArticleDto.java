@@ -2,6 +2,7 @@ package com.mustache.board.domain.dto;
 
 import com.mustache.board.domain.entity.Article;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.ToString;
 
 @Getter

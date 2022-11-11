@@ -1,0 +1,22 @@
+<!-- Comment form-->
+<section class="container mb-5">
+    <div class="card bg-light">
+        <div class="card-header">
+            <h4>Comment</h4>
+        </div>
+        <div class="card-body">
+            <!-- NewComment form -->
+            <form class="container" action="/articles/posts" method="post">
+                <div class="mb-3">
+                    <label class="form-label">작성자</label>
+                    <input type="text" placeholder="Author" class="form-control" name="author">
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">댓글</label>
+                    <textarea class="form-control" placeholder="Comment" rows="3" name="comment"></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+        </div>
+    </div>
+</section>
