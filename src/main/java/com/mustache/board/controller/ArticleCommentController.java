@@ -28,7 +28,16 @@ public class ArticleCommentController {
     }
     @PostMapping("/{articleId}")
     public String addComment(@PathVariable Long articleId, ArticleCommentDto articleCommentDto, Model model) {
-        
+
+
+
+
+//        Optional<ArticleComment> commentedArticle = Optional.ofNullable(articleCommentRepository.findById(articleId).orElseThrow(() -> new IllegalArgumentException("no such data")));
+//        ArticleComment savedComment = articleCommentRepository.save(commentedArticle.get());
+//        log.info(savedComment.toString());
+//        model.addAttribute("comment", savedComment);
+//        return String.format("redirect:/articles/%d", articleId);
+
 //        log.info(articleCommentDto.toString());
 //        ArticleComment savedComment = articleCommentRepository.save(articleCommentDto.toEntity(id));
 //        Article commentedArticle = savedComment.getArticle();
