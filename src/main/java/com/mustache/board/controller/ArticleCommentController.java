@@ -31,6 +31,13 @@ public class ArticleCommentController {
 
 
 
+//        log.info(articleCommentDto.toString());
+//        Article commentedArticle = articleCommentDto.getArticle();
+//        log.info(commentedArticle.toString());
+//        ArticleComment savedComment = articleCommentRepository.save(articleCommentDto.toEntity(commentedArticle));
+//        Long articleId = commentedArticle.getId();
+//        model.addAttribute("comment", savedComment);
+//        return String.format("redirect:/articles/%d", articleId);
 
 //        Optional<ArticleComment> commentedArticle = Optional.ofNullable(articleCommentRepository.findById(articleId).orElseThrow(() -> new IllegalArgumentException("no such data")));
 //        ArticleComment savedComment = articleCommentRepository.save(commentedArticle.get());
