@@ -6,19 +6,34 @@
         </div>
         <div class="card-body">
             <!-- NewComment form -->
-            {{#comment}}
-                <form class="container" action="/articles/{{id}}/comments" method="post">
-                    <div class="mb-3">
-                        <label class="form-label">작성자</label>
-                        <input type="text" placeholder="Author" class="form-control" name="author">
-                    </div>
-                    <div class="mb-3">
-                        <label class="form-label">댓글</label>
-                        <textarea class="form-control" placeholder="Comment" rows="3" name="comment"></textarea>
-                    </div>
-                    <button type="submit" class="btn btn-primary">Submit</button>
-                </form>
-            {{/comment}}
+            <form class="container" action="/articles/{{articleID}}/comments" method="post">
+                <div class="mb-3">
+                    <label class="form-label">작성자</label>
+                    <input type="text" placeholder="Author" class="form-control" name="author">
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">댓글</label>
+                    <textarea class="form-control" placeholder="Comment" rows="3" name="comment"></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+        </div>
+    </div>
+</section>
+<!-- Comment form-->
+<section class="container mb-5">
+    <div class="card bg-light">
+        <div class="card-header">
+        <h4>Comment</h4>
+        </div>
+        <div class="card-body">
+            <!-- ShowComment -->
+            <div class="mt-2">
+                {{#savedComment}}
+                    <div class="fw-bold">{{author}}</div>
+                    <div>{{comment}}</div>
+                {{/savedComment}}
+            </div>
         </div>
     </div>
 </section>
