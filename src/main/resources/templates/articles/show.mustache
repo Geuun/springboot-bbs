@@ -1,36 +1,53 @@
 {{>layouts/header}}
 {{#article}}
-    <form>
-        <div class="container mt-5">
-            <div class="row">
-                <div class="col-lg-8">
-                    <article>
-                        <!--header-->
-                        <header class="mb-4">
-                            <!--title-->
-                            <h1 class="fw-bolder mb-1">{{title}}</h1>
-                        </header>
-                        <!--content-->
-                        <section class="mb-5">
-                            {{contents}}
-                        </section>
-                    </article>
+    <section>
+        <div class="container mt-5 mb-5">
+            <div class="card bg-light">
+                <div class="card-header">
+                    <h1 class="fw-bolder mb-1">{{title}}</h1>
+                </div>
+                <div class="card-body">
+                    <!--content-->
+                    <div class="mb-5">
+                        {{contents}}
+                    </div>
+                </div>
+                <div style="padding: 10px">
                     <a href="/articles/{{id}}/edit" class="btn btn-dark">Edit</a>
                     <a href="/articles/{{id}}/delete" class="btn btn-danger">Delete</a>
+                    <a href="/articles/new" class="btn btn-secondary float-right">New Article</a>
+                    <a href="/articles/list" class="btn btn-dark float-right">Articles List</a>
                 </div>
             </div>
-            <a href="/articles/new" class="btn btn-secondary">New Article</a>
-            <a href="/articles/list" class="btn btn-dark">Articles List</a>
         </div>
-    </form>
+    </section>
     <!-- Comment form-->
+    <section class="container mb-5">
+        <div class="card bg-light">
+            <div class="card-header">
+                <h4>Comments</h4>
+            </div>
+            <div class="card-body">
+                <!-- ShowComment -->
+                <div class="mt-2">
+                    {{#savedComment}}
+                        <section class="eachcomment" style="padding: 5px">
+                            <div class="fw-bold">{{author}}</div>
+                            <div>{{comment}}</div>
+                        </section>
+                    {{/savedComment}}
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- NewComment form -->
     <section class="container mb-5">
         <div class="card bg-light">
             <div class="card-header">
                 <h4>Comment</h4>
             </div>
             <div class="card-body">
-                <!-- NewComment form -->
+
                 <form class="container" action="/articles/{{id}}/comments" method="post">
                     <div class="mb-3">
                         <label class="form-label">작성자</label>
@@ -45,23 +62,5 @@
             </div>
         </div>
     </section>
-    <!-- Comment form-->
-    <section class="container mb-5">
-        <div class="card bg-light">
-            <div class="card-header">
-                <h4>Comment</h4>
-            </div>
-            <div class="card-body">
-                <!-- ShowComment -->
-                <div class="mt-2">
-                    {{#savedComment}}
-                        <div class="fw-bold">{{author}}</div>
-                        <div>{{comment}}</div>
-                    {{/savedComment}}
-                </div>
-            </div>
-        </div>
-    </section>
-
 {{/article}}
 {{>layouts/footer}}
