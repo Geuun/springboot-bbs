@@ -43,6 +43,7 @@ public class ArticleController {
         Optional<Article> optionalArticle = articleRepository.findById(id);
         if (!optionalArticle.isEmpty()) {
             model.addAttribute("article", optionalArticle.get());
+            model.addAttribute("savedComment", optionalArticle.get().getArticleComments());
             return "articles/show";
         } else {
             return "errors/404error";
