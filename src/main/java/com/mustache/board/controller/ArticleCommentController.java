@@ -26,12 +26,19 @@ public class ArticleCommentController {
         this.articleRepository = articleRepository;
     }
     @PostMapping("/{articleId}/comments")
-    public String addComment(@PathVariable Long articleId, ArticleCommentDto articleCommentDto, Model model) {
+    public String addComment(@PathVariable Long articleId, ArticleCommentDto articleCommentDto) {
         log.info(articleCommentDto.toString());
         Article commentedArticle = articleRepository.findById(articleId).get();
         log.info(commentedArticle.toString());
         ArticleComment savedComment = articleCommentRepository.save(articleCommentDto.toEntity(commentedArticle));
         log.info(savedComment.toString());
+        return String.format("redirect:/articles/%d", articleId);
+    }
+
+    @GetMapping("/{articleId}/comments/delete/{commentId}")
+    public String deleteComment(@PathVariable Long articleId, @PathVariable Long commentId) {
+        log.info("articleId: {} commentId: {}", commentId.toString(), articleId.toString());
+        articleCommentRepository.deleteById(commentId);
         return String.format("redirect:/articles/%d", articleId);
     }
 }
