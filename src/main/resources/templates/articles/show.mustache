@@ -13,10 +13,14 @@
                     </div>
                 </div>
                 <div style="padding: 10px">
-                    <a href="/articles/{{id}}/edit" class="btn btn-dark">Edit</a>
-                    <a href="/articles/{{id}}/delete" class="btn btn-danger">Delete</a>
-                    <a href="/articles/new" class="btn btn-secondary float-right">New Article</a>
-                    <a href="/articles/list" class="btn btn-dark float-right">Articles List</a>
+                    <div style="display: inline-block; float: left">
+                        <a href="/articles/{{id}}/edit" class="btn btn-dark">Edit</a>
+                        <a href="/articles/{{id}}/delete" class="btn btn-danger">Delete</a>
+                    </div>
+                    <div style="display: inline-block; float: right">
+                        <a href="/articles/new" class="btn btn-secondary" >New Article</a>
+                        <a href="/articles/list" class="btn btn-dark">Articles List</a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -31,11 +35,19 @@
                 <!-- ShowComment -->
                 <div class="mt-2">
                     {{#savedComment}}
-                        <section class="eachcomment" style="padding: 5px">
-                            <div class="fw-bold">{{author}}</div>
-                            <div>{{comment}}</div>
-                        </section>
-                        <a href="/articles/{{#article}}{{id}}{{/article}}/comments/delete/{{id}}" class="btn btn-danger">Delete</a>
+                        <div class="fw-bold">
+                            {{author}}
+                        </div>
+                        <div>
+                            <div >
+                                <div>
+                                    {{comment}}
+                                </div>
+                                <div>
+                                    <a href="/articles/{{#article}}{{id}}{{/article}}/comments/delete/{{id}}" class="btn btn-danger btn-sm">Delete</a>
+                                </div>
+                            </div>
+                        </div>
                     {{/savedComment}}
                 </div>
             </div>
