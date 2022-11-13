@@ -33,15 +33,20 @@ public class HospitalController {
 
     @GetMapping("/search")
     public String searchHospital(Model model, Pageable pageable, String searchKeyword) {
+        log.info("searchKeyword: {}", searchKeyword);
         Page<Hospital> searchedHospitals = null;
         if (searchKeyword == null) {
             return "redirect:/hospitals";
         } else {
             searchedHospitals = hospitalRepository.findByHospitalNameContaining(searchKeyword, pageable);
+            log.info(searchedHospitals.toString());
+            log.info("size: {}", searchedHospitals.getSize());
             model.addAttribute("hospitals", searchedHospitals);
-            model.addAttribute("previous", pageable.previousOrFirst().getPageNumber());
-            model.addAttribute("next", pageable.next().getPageNumber());
-            return "hospitals/list";
+            log.info(pageable.toString());
+            model.addAttribute("searchKeyword", searchKeyword);
+            model.addAttribute("previous", searchedHospitals.previousOrFirstPageable().getPageNumber());
+            model.addAttribute("next", searchedHospitals.nextOrLastPageable().getPageNumber());
+            return "hospitals/searchlist";
         }
     }
 }
