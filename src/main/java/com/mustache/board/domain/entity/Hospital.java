@@ -20,7 +20,7 @@ public class Hospital {
 
     @Column(name = "road_name_address")
     private String roadNameAddress;
-
+    private String businessTypeName;
     private Integer patientRoomCount;
     private Integer totalNumberOfBeds;
     private Float totalAreaSize;
