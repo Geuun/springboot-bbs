@@ -23,6 +23,8 @@ public class Hospital {
     @Column(name = "road_name_address")
     private String roadNameAddress;
     private String businessTypeName;
+    @Column(name = "phone")
+    private String phoneNum;
     private Integer patientRoomCount;
     private Integer totalNumberOfBeds;
     private Integer businessStatusCode;
@@ -35,6 +37,6 @@ public class Hospital {
         return new HospitalResponse(hospital.getId(),
                 hospital.getRoadNameAddress(), hospital.getHospitalName(),
                 hospital.getPatientRoomCount(), hospital.getTotalNumberOfBeds(), hospital.getBusinessTypeName(),
-                hospital.getTotalAreaSize());
+                hospital.getTotalAreaSize(),hospital.getPhoneNum());
     }
 }
