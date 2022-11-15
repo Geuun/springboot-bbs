@@ -1,5 +1,6 @@
 package com.mustache.board.domain.entity;
 
+import com.mustache.board.domain.dto.HospitalResponse;
 import lombok.Getter;
 import org.springframework.aop.IntroductionInfo;
 
@@ -24,4 +25,12 @@ public class Hospital {
     private Integer patientRoomCount;
     private Integer totalNumberOfBeds;
     private Float totalAreaSize;
+
+    // HospitalEntity를 HospitalResponse Dto로 만들어주는 부분
+    public static HospitalResponse of(Hospital hospital) {
+        return new HospitalResponse(hospital.getId(),
+                hospital.getRoadNameAddress(), hospital.getHospitalName(),
+                hospital.getPatientRoomCount(), hospital.getTotalNumberOfBeds(), hospital.getBusinessTypeName(),
+                hospital.getTotalAreaSize());
+    }
 }

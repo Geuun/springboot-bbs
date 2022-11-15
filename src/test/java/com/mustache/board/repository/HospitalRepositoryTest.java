@@ -40,4 +40,22 @@ class HospitalRepositoryTest {
             System.out.println(hospital.getHospitalName());
         }
     }
+
+    @Test
+    @DisplayName("findByRoadNameAddressContainingAndBusinessTypeName(): 주소(roadNameAddress) + 업태구분명(businessType) 검색 Test")
+    void findByRoadNameAddressContainingAndBusinessTypeName() {
+        List<Hospital> hospitals = hospitalRepository.findByRoadNameAddressContainingAndBusinessTypeNameContaining("송파구", "보건");
+        for (var hospital : hospitals) {
+            System.out.println(hospital.getHospitalName());
+        }
+    }
+
+    @Test
+    @DisplayName("findByTotalNumberOfBedsBetween(): 병상 수가 특정 수 이상 특정 수 미만인 병원을 찾는 Test")
+    void findByTotalNumberOfBedsBetween() {
+        List<Hospital> hospitals = hospitalRepository.findByTotalNumberOfBedsBetween(10, 20);
+        for (var hospital : hospitals) {
+            System.out.println(hospital.getHospitalName());
+        }
+    }
 }
