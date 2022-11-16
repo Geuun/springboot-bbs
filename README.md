@@ -3,6 +3,8 @@
 
 ### 전국 병원 조회 페이지
 
+---
+
 ### `deploy.sh` 사용법
 
 ![스크린샷 2022-11-16 오전 11 00 02](https://user-images.githubusercontent.com/89567475/202065074-969a1f25-c0e8-4de9-8260-c1f81bbe35c9.png)
