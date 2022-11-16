@@ -1,6 +1,6 @@
 package com.mustache.board.repository;
 
-import com.mustache.board.domain.entity.Hospital;
+import com.mustache.board.domain.hospital.entity.Hospital;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -1,6 +1,5 @@
-package com.mustache.board.domain.entity;
+package com.mustache.board.domain.article.entity;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

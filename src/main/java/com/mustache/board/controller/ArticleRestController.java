@@ -1,6 +1,6 @@
 package com.mustache.board.controller;
 
-import com.mustache.board.domain.dto.ArticleResponse;
+import com.mustache.board.domain.article.dto.ArticleResponse;
 import com.mustache.board.service.ArticleService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;

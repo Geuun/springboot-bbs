@@ -1,6 +1,6 @@
-package com.mustache.board.domain.entity;
+package com.mustache.board.domain.article.entity;
 
-import com.mustache.board.domain.dto.ArticleResponse;
+import com.mustache.board.domain.article.dto.ArticleResponse;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

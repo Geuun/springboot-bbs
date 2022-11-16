@@ -1,4 +1,4 @@
-package com.mustache.board.domain.dto;
+package com.mustache.board.domain.hospital.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

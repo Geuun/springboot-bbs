@@ -1,7 +1,7 @@
 package com.mustache.board.service;
 
-import com.mustache.board.domain.dto.ArticleResponse;
-import com.mustache.board.domain.entity.Article;
+import com.mustache.board.domain.article.dto.ArticleResponse;
+import com.mustache.board.domain.article.entity.Article;
 import com.mustache.board.repository.ArticleRepository;
 import org.springframework.stereotype.Service;
 
