@@ -1,5 +1,7 @@
 package com.mustache.board.service;
 
+import com.mustache.board.domain.article.dto.ArticleAddRequest;
+import com.mustache.board.domain.article.dto.ArticleAddResponse;
 import com.mustache.board.domain.article.dto.ArticleResponse;
 import com.mustache.board.domain.article.entity.Article;
 import com.mustache.board.repository.ArticleRepository;
@@ -21,5 +23,12 @@ public class ArticleService {
         Article article = optArticle.get();
         ArticleResponse articleResponse = new ArticleResponse(article);
         return  articleResponse;
+    }
+
+    public ArticleAddResponse addArticle(ArticleAddRequest reqDto) {
+        Article article = reqDto.toEntity();
+        Article savedArticle = articleRepository.save(article);
+        return new ArticleAddResponse(savedArticle.getId(), savedArticle.getTitle(),
+                savedArticle.getContents());
     }
 }
