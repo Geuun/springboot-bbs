@@ -1,5 +1,6 @@
 package com.mustache.board.controller;
 
+import com.mustache.board.domain.article.dto.ArticleCommentDto;
 import com.mustache.board.domain.article.dto.ArticleResponse;
 import com.mustache.board.service.ArticleService;
 import org.junit.jupiter.api.DisplayName;
@@ -9,6 +10,10 @@ import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.test.web.servlet.MockMvc;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.BDDMockito.given;
 import static org.mockito.Mockito.verify;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
@@ -20,32 +25,30 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 class ArticleRestControllerTest {
 
     @Autowired
-    MockMvc mockmvc;
+    MockMvc mockMvc;
 
     @MockBean
-    ArticleService articleService; // => 가짜 객체로 테스트
+    ArticleService articleService;
 
     @Test
-    @DisplayName("RESTAPI Json Response test")
-    void jsonResponse() throws Exception {
-        ArticleResponse articleResponse = ArticleResponse
-                .builder()
-                .id(Long.valueOf(29))
-                .title("댓글 지우기 테스트")
-                .build();
+    @DisplayName("해당 id의 글이 조회가 잘 되는지")
+    void findSingle() throws Exception {
+        Long id = 1L;
 
-        given(articleService.getArticle(Long.valueOf(29)))
-                .willReturn(articleResponse);
+        List<ArticleCommentDto> commentDto = new ArrayList<>();
+        ArticleCommentDto articleCommentDto = new ArticleCommentDto("작성자","내용");
+        commentDto.add(articleCommentDto);
 
-        Long articleId= Long.valueOf(29);
+        given(articleService.getArticleResponse(any()))
+                .willReturn(new ArticleResponse(1L, "첫번째 글", "내용입니다.", commentDto);
 
-        String url = String.format("/api/v1/articles/%d", articleId);
-        mockmvc.perform(get(url))
+        mockMvc.perform(get("/api/v1/articles/1"))
                 .andExpect(status().isOk())
+                .andExpect(jsonPath("$.id").exists())
                 .andExpect(jsonPath("$.title").exists())
-                .andExpect(jsonPath("$.title").value("댓글 지우기 테스트"))
+                .andExpect(jsonPath("$.content").exists())
                 .andDo(print());
 
-        verify(articleService).getArticle(articleId);
+        verify(articleService).getArticleById(id);
     }
 }

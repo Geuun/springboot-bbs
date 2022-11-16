@@ -38,7 +38,7 @@ public class Article {
     }
 
     public static ArticleResponse of(Article article) {
-        return new ArticleResponse(article.getId(), article.getTitle(), article.getContents(),
-                article.getArticleComments());
+        return new ArticleResponse(article.getId(), article.getTitle()
+                , article.getContents(), article.getArticleComments());
     }
 }

@@ -16,5 +16,5 @@ public class ArticleResponse {
     private Long id;
     private String title;
     private String contents;
-    private List<ArticleComment> articleComments;
+    private List articleComments;
 }
