@@ -1,14 +1,12 @@
-package com.mustache.board.domain.entity;
+package com.mustache.board.domain.hospital.entity;
 
-import com.mustache.board.domain.dto.HospitalResponse;
+import com.mustache.board.domain.hospital.dto.HospitalResponse;
 import lombok.Getter;
-import org.springframework.aop.IntroductionInfo;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
-import javax.persistence.criteria.CriteriaBuilder;
 
 @Entity
 @Table(name = "nation_wide_hospitals")

@@ -1,8 +1,7 @@
 package com.mustache.board.controller;
 
-import com.mustache.board.domain.dto.ArticleCommentDto;
-import com.mustache.board.domain.dto.ArticleDto;
-import com.mustache.board.domain.entity.Article;
+import com.mustache.board.domain.article.dto.ArticleDto;
+import com.mustache.board.domain.article.entity.Article;
 import com.mustache.board.repository.ArticleRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;

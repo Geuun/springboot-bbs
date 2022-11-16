@@ -1,7 +1,7 @@
 package com.mustache.board.service;
 
-import com.mustache.board.domain.dto.HospitalResponse;
-import com.mustache.board.domain.entity.Hospital;
+import com.mustache.board.domain.hospital.dto.HospitalResponse;
+import com.mustache.board.domain.hospital.entity.Hospital;
 import com.mustache.board.repository.HospitalRepository;
 import org.springframework.stereotype.Service;
 

@@ -1,6 +1,6 @@
 package com.mustache.board.controller;
 
-import com.mustache.board.domain.dto.HospitalResponse;
+import com.mustache.board.domain.hospital.dto.HospitalResponse;
 import com.mustache.board.service.HospitalService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;

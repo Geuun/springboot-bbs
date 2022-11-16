@@ -1,6 +1,6 @@
 package com.mustache.board.controller;
 
-import com.mustache.board.domain.entity.Hospital;
+import com.mustache.board.domain.hospital.entity.Hospital;
 import com.mustache.board.repository.HospitalRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.Page;

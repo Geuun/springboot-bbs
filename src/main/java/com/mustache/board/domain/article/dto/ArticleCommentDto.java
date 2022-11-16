@@ -1,7 +1,7 @@
-package com.mustache.board.domain.dto;
+package com.mustache.board.domain.article.dto;
 
-import com.mustache.board.domain.entity.Article;
-import com.mustache.board.domain.entity.ArticleComment;
+import com.mustache.board.domain.article.entity.Article;
+import com.mustache.board.domain.article.entity.ArticleComment;
 import lombok.Getter;
 import lombok.ToString;
 

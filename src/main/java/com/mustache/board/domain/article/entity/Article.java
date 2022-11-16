@@ -1,5 +1,6 @@
-package com.mustache.board.domain.entity;
+package com.mustache.board.domain.article.entity;
 
+import com.mustache.board.domain.article.dto.ArticleResponse;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -34,5 +35,10 @@ public class Article {
         this.id = id;
         this.title = title;
         this.contents = contents;
+    }
+
+    public static ArticleResponse of(Article article) {
+        return new ArticleResponse(article.getId(), article.getTitle(), article.getContents(),
+                article.getArticleComments());
     }
 }
