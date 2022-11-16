@@ -1,6 +1,6 @@
 package com.mustache.board.controller;
 
-import com.mustache.board.domain.article.dto.ArticleDto;
+import com.mustache.board.domain.article.dto.ArticleRequest;
 import com.mustache.board.domain.article.entity.Article;
 import com.mustache.board.repository.ArticleRepository;
 import lombok.extern.slf4j.Slf4j;
@@ -55,7 +55,7 @@ public class ArticleController {
     }
 
     @PostMapping("/posts")
-    public String createArticle(ArticleDto articleDto) {
+    public String createArticle(ArticleRequest articleDto) {
         log.info(articleDto.toString());
         Article savedArticle = articleRepository.save(articleDto.toEntity());
         log.info("generatedId: {}", savedArticle.getId());
@@ -75,7 +75,7 @@ public class ArticleController {
     }
     
     @PostMapping("/{id}/update")
-    public String update(@PathVariable Long id, ArticleDto articleDto, Model model) {
+    public String update(@PathVariable Long id, ArticleRequest articleDto, Model model) {
         log.info("title: {} contents: {}", articleDto.getTitle(), articleDto.getContents());
         Article updatedArticle = articleRepository.save(articleDto.toEntity(id));
         model.addAttribute("article", updatedArticle);

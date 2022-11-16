@@ -1,6 +1,6 @@
 package com.mustache.board.controller;
 
-import com.mustache.board.domain.article.dto.ArticleCommentDto;
+import com.mustache.board.domain.article.dto.ArticleCommentRequest;
 import com.mustache.board.domain.article.entity.Article;
 import com.mustache.board.domain.article.entity.ArticleComment;
 import com.mustache.board.repository.ArticleCommentRepository;
@@ -25,11 +25,11 @@ public class ArticleCommentController {
         this.articleRepository = articleRepository;
     }
     @PostMapping("/{articleId}/comments")
-    public String addComment(@PathVariable Long articleId, ArticleCommentDto articleCommentDto) {
-        log.info(articleCommentDto.toString());
+    public String addComment(@PathVariable Long articleId, ArticleCommentRequest articleCommentRequest) {
+        log.info(articleCommentRequest.toString());
         Article commentedArticle = articleRepository.findById(articleId).get();
         log.info(commentedArticle.toString());
-        ArticleComment savedComment = articleCommentRepository.save(articleCommentDto.toEntity(commentedArticle));
+        ArticleComment savedComment = articleCommentRepository.save(articleCommentRequest.toEntity(commentedArticle));
         log.info(savedComment.toString());
         return String.format("redirect:/articles/%d", articleId);
     }

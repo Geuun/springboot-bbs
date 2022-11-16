@@ -1,5 +1,6 @@
 package com.mustache.board.domain.article.entity;
 
+import com.mustache.board.domain.article.dto.ArticleCommentResponse;
 import com.mustache.board.domain.article.dto.ArticleResponse;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -8,6 +9,7 @@ import lombok.NoArgsConstructor;
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Entity
 @Table(name = "article")
@@ -37,8 +39,8 @@ public class Article {
         this.contents = contents;
     }
 
-    public static ArticleResponse of(Article article) {
-        return new ArticleResponse(article.getId(), article.getTitle(), article.getContents(),
-                article.getArticleComments());
-    }
+//    public static ArticleResponse of(Article article) {
+//        return new ArticleResponse(article.getId(), article.getTitle()
+//                , article.getContents(), article.getArticleComments());
+//    }
 }
