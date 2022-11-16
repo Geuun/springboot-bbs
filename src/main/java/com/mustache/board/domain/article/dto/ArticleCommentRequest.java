@@ -7,13 +7,13 @@ import lombok.ToString;
 
 @Getter
 @ToString
-public class ArticleCommentDto {
+public class ArticleCommentRequest {
     private String author;
     private String comment;
 
     // Entity -> Dto
 
-    public ArticleCommentDto(String author, String comment) {
+    public ArticleCommentRequest(String author, String comment) {
         this.author = author;
         this.comment = comment;
     }

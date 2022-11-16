@@ -1,6 +1,6 @@
 package com.mustache.board.controller;
 
-import com.mustache.board.domain.article.dto.ArticleCommentDto;
+import com.mustache.board.domain.article.dto.ArticleCommentRequest;
 import com.mustache.board.domain.article.dto.ArticleResponse;
 import com.mustache.board.service.ArticleService;
 import org.junit.jupiter.api.DisplayName;
@@ -35,9 +35,9 @@ class ArticleRestControllerTest {
     void findSingle() throws Exception {
         Long id = 1L;
 
-        List<ArticleCommentDto> commentDto = new ArrayList<>();
-        ArticleCommentDto articleCommentDto = new ArticleCommentDto("작성자","내용");
-        commentDto.add(articleCommentDto);
+        List<ArticleCommentRequest> commentDto = new ArrayList<>();
+        ArticleCommentRequest articleCommentRequest = new ArticleCommentRequest("작성자","내용");
+        commentDto.add(articleCommentRequest);
 
         given(articleService.getArticleResponse(any()))
                 .willReturn(new ArticleResponse(1L, "첫번째 글", "내용입니다.", commentDto);
