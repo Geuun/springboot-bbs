@@ -19,8 +19,7 @@ public class ArticleService {
     public ArticleResponse getArticleResponse(Long id) {
         Optional<Article> optArticle = articleRepository.findById(id);
         Article article = optArticle.get();
-        ArticleResponse articleResponse = Article.of(article);
-
+        ArticleResponse articleResponse = new ArticleResponse(article);
         return  articleResponse;
     }
 }

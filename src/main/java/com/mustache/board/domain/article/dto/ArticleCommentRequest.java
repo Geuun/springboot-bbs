@@ -11,13 +11,6 @@ public class ArticleCommentRequest {
     private String author;
     private String comment;
 
-    // Entity -> Dto
-
-    public ArticleCommentRequest(String author, String comment) {
-        this.author = author;
-        this.comment = comment;
-    }
-
     // Dto -> Entity
     public ArticleComment toEntity(Article article) {
         return new ArticleComment(article, author, comment);
