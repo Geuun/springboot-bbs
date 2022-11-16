@@ -1,6 +1,8 @@
 package com.mustache.board.controller;
 
-import com.mustache.board.domain.article.dto.ArticleCommentRequest;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.mustache.board.domain.article.dto.ArticleAddRequest;
+import com.mustache.board.domain.article.dto.ArticleAddResponse;
 import com.mustache.board.domain.article.dto.ArticleCommentResponse;
 import com.mustache.board.domain.article.dto.ArticleResponse;
 import com.mustache.board.service.ArticleService;
@@ -9,16 +11,17 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
+import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.BDDMockito.given;
 import static org.mockito.Mockito.verify;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
@@ -28,6 +31,9 @@ class ArticleRestControllerTest {
 
     @Autowired
     MockMvc mockMvc;
+
+    @Autowired
+    ObjectMapper objectMapper;
 
     @MockBean
     ArticleService articleService;
@@ -40,7 +46,8 @@ class ArticleRestControllerTest {
         List<ArticleCommentResponse> comments = new ArrayList<>();
         System.out.println(comments);
 
-        given(articleService.getArticleResponse(id)).willReturn(new ArticleResponse(1l, "첫번째 글", "내용입니다.", comments));
+        given(articleService.getArticleResponse(id))
+                .willReturn(new ArticleResponse(1l, "첫번째 글", "내용입니다.", comments));
 
         mockMvc.perform(get("/api/v1/articles/1"))
                 .andExpect(status().isOk())
@@ -51,5 +58,26 @@ class ArticleRestControllerTest {
                 .andDo(print());
 
         verify(articleService).getArticleResponse(id);
+    }
+
+    @Test
+    @DisplayName("Add ArticleRest API Test")
+    void addArticle() throws Exception {
+        ArticleAddRequest reqDto = new ArticleAddRequest("제목입니다.", "내용입니다.");
+        ArticleAddResponse respDto = new ArticleAddResponse(1l, reqDto.getTitle(), reqDto.getContents());
+
+        given(articleService.addArticle(any())) // any() => 가짜 객체라서 어느 객체가 들어가도 상관 없
+                .willReturn(respDto);
+
+        mockMvc.perform(post("/api/v1/ariticles")
+                .contentType(MediaType.APPLICATION_JSON)
+                .content(objectMapper.writeValueAsBytes(reqDto)))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$.id").exists())
+                .andExpect(jsonPath("$.title").exists())
+                .andExpect(jsonPath("$.contents").exists())
+                .andDo(print());
+
+        verify(articleService).addArticle(reqDto);
     }
 }
