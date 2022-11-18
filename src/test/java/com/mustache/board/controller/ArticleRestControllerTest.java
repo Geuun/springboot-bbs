@@ -69,7 +69,7 @@ class ArticleRestControllerTest {
         given(articleService.addArticle(any())) // any() => 가짜 객체라서 어느 객체가 들어가도 상관 없
                 .willReturn(respDto);
 
-        mockMvc.perform(post("/api/v1/ariticles")
+        mockMvc.perform(post("/api/v1/ariticles/1")
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(objectMapper.writeValueAsBytes(reqDto)))
                 .andExpect(status().isOk())
