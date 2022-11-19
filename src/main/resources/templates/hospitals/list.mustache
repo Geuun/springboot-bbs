@@ -3,9 +3,17 @@
     <div>
         <h3><img src="https://user-images.githubusercontent.com/89567475/201270860-afa0edb3-3ec4-4f56-ae95-db19cf158db1.png" alt="Logo" width="45" height="45" class="d-inline-block align-text-middle">
             Korea Nationwide Hospital List</h3>
-        <form class="d-flex" role="search" action="/hospitals/search" method="get">
-            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="searchKeyword">
-            <button class="btn btn-outline-success" type="submit">Search</button>
+    </div>
+    <div>
+        <form class="d-flex" role="search" method="get" >
+            <div>
+                <!-- API 에서 searchKeyword 값을 name 에 넣어줘야 작동함 -->
+                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="searchKeyword">
+            </div>
+            <div>
+                <button class="btn btn-outline-success" type="submit" formaction="/hospitals/search/hospitalname">병원명<br>검색</button>
+                <button class="btn btn-outline-success" type="submit" formaction="/hospitals/search/roadnameaddress">도로명<br>검색</button>
+            </div>
         </form>
     </div>
     <table class="table table-hover">
