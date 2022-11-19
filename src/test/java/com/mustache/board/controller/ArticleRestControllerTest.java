@@ -1,6 +1,7 @@
 package com.mustache.board.controller;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.mustache.board.controller.article.ArticleRestController;
 import com.mustache.board.domain.article.dto.ArticleAddRequest;
 import com.mustache.board.domain.article.dto.ArticleAddResponse;
 import com.mustache.board.domain.article.dto.ArticleCommentResponse;

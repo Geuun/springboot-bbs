@@ -1,4 +1,4 @@
-package com.mustache.board.controller;
+package com.mustache.board.controller.hospital;
 
 import com.mustache.board.domain.hospital.entity.Hospital;
 import com.mustache.board.repository.HospitalRepository;

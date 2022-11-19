@@ -1,4 +1,4 @@
-package com.mustache.board.controller;
+package com.mustache.board.controller.hospital;
 
 import com.mustache.board.domain.hospital.dto.HospitalResponse;
 import com.mustache.board.service.HospitalService;
