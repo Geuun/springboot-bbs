@@ -19,7 +19,7 @@ public class HospitalRestController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<HospitalResponse> get(@PathVariable Integer id) { // ResponseEntity : Dto 타입
+    public ResponseEntity<HospitalResponse> getHospital(@PathVariable Integer id) { // ResponseEntity : Dto 타입
         HospitalResponse hospitalResponse = hospitalService.getHospital(id); // DTO
         return ResponseEntity.ok().body(hospitalResponse); // Return은 DTO로
     }

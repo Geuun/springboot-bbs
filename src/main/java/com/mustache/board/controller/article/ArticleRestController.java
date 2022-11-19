@@ -20,7 +20,7 @@ public class ArticleRestController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<ArticleResponse> get(@PathVariable Long id) {
+    public ResponseEntity<ArticleResponse> getArticle(@PathVariable Long id) {
         ArticleResponse articleResponse = articleService.getArticleResponse(id);
         log.info(articleResponse.toString());
         return ResponseEntity
