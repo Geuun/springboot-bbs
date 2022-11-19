@@ -1,7 +1,39 @@
 
-### 게시판
+
+
+<details>
+<summary>Board</summary>
+<div>
+
+### 게시판 기능
+
+- UI
+  - 새 글 작성
+  - 글 목록 조회
+  - 글 상세 페이지 조회 및 수정 및 삭제
+  - 댓글 작성
+
+- REST API
+  - (GET) getArticle : 게시글 조회
+  - (POST) addArticle : 게시글 등록
+
+</div>
+</details>
+
+<details>
+<summary>Korea Nationwide Hospital List</summary>
+<div>
 
 ### 전국 병원 조회 페이지
+
+- UI를 통해 아래의 기능 지원
+  - 전국 병원 이름 및 도로명 주소 조회
+  - 병원명 및 주소로 검색
+- REST API 를 통해 조회 지원
+  - (GET) getHospital : 병원 조회 
+
+</div>
+</details>
 
 ---
 
