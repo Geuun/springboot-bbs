@@ -1,4 +1,4 @@
-package com.mustache.board.controller;
+package com.mustache.board.controller.article;
 
 import com.mustache.board.domain.article.dto.ArticleAddRequest;
 import com.mustache.board.domain.article.dto.ArticleAddResponse;

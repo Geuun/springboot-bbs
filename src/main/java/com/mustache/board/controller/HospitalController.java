@@ -9,6 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 @RequestMapping("/hospitals")
@@ -31,21 +32,40 @@ public class HospitalController {
         return "hospitals/list";
     }
 
-    @GetMapping("/search")
-    public String searchHospital(Model model, Pageable pageable, String searchKeyword) {
+    @GetMapping("/search/hospitalname")
+    public String searchByHospitalName(Model model, Pageable pageable, @RequestParam String searchKeyword) {
         log.info("searchKeyword: {}", searchKeyword);
-        Page<Hospital> searchedHospitals = null;
+
         if (searchKeyword == null) {
             return "redirect:/hospitals";
         } else {
-            searchedHospitals = hospitalRepository.findByHospitalNameContaining(searchKeyword, pageable);
-            log.info(searchedHospitals.toString());
-            log.info("size: {}", searchedHospitals.getSize());
-            model.addAttribute("hospitals", searchedHospitals);
+            Page<Hospital> searchedByHospitalNameList = hospitalRepository.findByHospitalNameContaining(searchKeyword, pageable);
+            log.info(searchedByHospitalNameList.toString());
+            log.info("size: {}", searchedByHospitalNameList.getSize());
+            model.addAttribute("hospitalList", searchedByHospitalNameList);
             log.info(pageable.toString());
             model.addAttribute("searchKeyword", searchKeyword);
-            model.addAttribute("previous", searchedHospitals.previousOrFirstPageable().getPageNumber());
-            model.addAttribute("next", searchedHospitals.nextOrLastPageable().getPageNumber());
+            model.addAttribute("previous", searchedByHospitalNameList.previousOrFirstPageable().getPageNumber());
+            model.addAttribute("next", searchedByHospitalNameList.nextOrLastPageable().getPageNumber());
+            return "hospitals/searchlist";
+        }
+    }
+
+    @GetMapping("/search/roadnameaddress")
+    public String searchByRoadNameAddress(Model model, Pageable pageable, @RequestParam String searchKeyword) {
+        log.info("searchKeyword: {}", searchKeyword);
+
+        if (searchKeyword == null) {
+            return "redirect:/hospitals";
+        } else {
+            Page<Hospital> searchedByRoadNameAddressList = hospitalRepository.findByRoadNameAddressContaining(searchKeyword, pageable);
+            log.info(searchedByRoadNameAddressList.toString());
+            log.info("size: {}", searchedByRoadNameAddressList.getSize());
+            model.addAttribute("hospitalList", searchedByRoadNameAddressList);
+            log.info(pageable.toString());
+            model.addAttribute("searchKeyword", searchKeyword);
+            model.addAttribute("previous", searchedByRoadNameAddressList.previousOrFirstPageable().getPageNumber());
+            model.addAttribute("next", searchedByRoadNameAddressList.nextOrLastPageable().getPageNumber());
             return "hospitals/searchlist";
         }
     }
