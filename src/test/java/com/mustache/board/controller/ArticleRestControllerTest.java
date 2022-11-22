@@ -52,9 +52,13 @@ class ArticleRestControllerTest {
 
         mockMvc.perform(get("/api/v1/articles/1"))
                 .andExpect(status().isOk())
+                .andExpect(jsonPath("$.id").exists())
                 .andExpect(jsonPath("$.id").value("1"))
+                .andExpect(jsonPath("$.title").exists())
                 .andExpect(jsonPath("$.title").value("첫번째 글"))
+                .andExpect(jsonPath("$.contents").exists())
                 .andExpect(jsonPath("$.contents").value("내용입니다."))
+                .andExpect(jsonPath("$.articleComments").exists())
                 .andExpect(jsonPath("$.articleComments").value(comments))
                 .andDo(print());
 
