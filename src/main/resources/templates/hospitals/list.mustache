@@ -6,11 +6,11 @@
     </div>
     <div>
         <form class="d-flex" role="search" method="get" >
-            <div>
+            <div class="col-md-10">
                 <!-- API 에서 searchKeyword 값을 name 에 넣어줘야 작동함 -->
                 <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="searchKeyword">
             </div>
-            <div>
+            <div class="col-md-2">
                 <button class="btn btn-outline-success" type="submit" formaction="/hospitals/search/hospitalname">병원명<br>검색</button>
                 <button class="btn btn-outline-success" type="submit" formaction="/hospitals/search/roadnameaddress">도로명<br>검색</button>
             </div>
@@ -29,7 +29,7 @@
             <tr>
                 <th scope="row">{{id}}</th>
                 <td><a href="/hospitals/{{id}}">{{hospitalName}}</a></td>
-                <td>{{roadNameAddress}}</td>
+                <td><a target="_blank" href="https://map.kakao.com/link/search/{{roadNameAddress}}">{{roadNameAddress}}</a></td>
             </tr>
         {{/hospitals}}
         </tbody>
