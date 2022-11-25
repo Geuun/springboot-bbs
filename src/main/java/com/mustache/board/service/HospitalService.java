@@ -3,17 +3,15 @@ package com.mustache.board.service;
 import com.mustache.board.domain.hospital.dto.HospitalResponse;
 import com.mustache.board.domain.hospital.entity.Hospital;
 import com.mustache.board.repository.HospitalRepository;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
 
 @Service
+@RequiredArgsConstructor
 public class HospitalService {
     private final HospitalRepository hospitalRepository;
-
-    public HospitalService(HospitalRepository hospitalRepository) {
-        this.hospitalRepository = hospitalRepository;
-    }
 
     public HospitalResponse getHospital(Integer id) {
         Optional<Hospital> optHospital = hospitalRepository.findById(id); // Entity

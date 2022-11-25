@@ -3,6 +3,7 @@ package com.mustache.board.controller.article;
 import com.mustache.board.domain.article.dto.ArticleRequest;
 import com.mustache.board.domain.article.entity.Article;
 import com.mustache.board.repository.ArticleRepository;
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -14,16 +15,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import java.util.List;
 import java.util.Optional;
 
-@Controller
 @Slf4j
+@Controller
+@RequiredArgsConstructor
 @RequestMapping("/articles")
 public class ArticleController {
 
     private final ArticleRepository articleRepository;
-
-    public ArticleController(ArticleRepository articleRepository) {
-        this.articleRepository = articleRepository;
-    }
 
     @GetMapping("/list")
     public String articleListPage(Model model) {

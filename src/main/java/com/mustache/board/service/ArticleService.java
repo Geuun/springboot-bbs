@@ -5,18 +5,16 @@ import com.mustache.board.domain.article.dto.ArticleAddResponse;
 import com.mustache.board.domain.article.dto.ArticleResponse;
 import com.mustache.board.domain.article.entity.Article;
 import com.mustache.board.repository.ArticleRepository;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
 
 @Service
+@RequiredArgsConstructor
 public class ArticleService {
 
     private final ArticleRepository articleRepository;
-
-    public ArticleService(ArticleRepository articleRepository) {
-        this.articleRepository = articleRepository;
-    }
 
     public ArticleResponse getArticleResponse(Long id) {
         Optional<Article> optArticle = articleRepository.findById(id);

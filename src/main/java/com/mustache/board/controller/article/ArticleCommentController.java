@@ -5,6 +5,7 @@ import com.mustache.board.domain.article.entity.Article;
 import com.mustache.board.domain.article.entity.ArticleComment;
 import com.mustache.board.repository.ArticleCommentRepository;
 import com.mustache.board.repository.ArticleRepository;
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -14,16 +15,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Slf4j
 @Controller
+@RequiredArgsConstructor
 @RequestMapping("/articles")
 public class ArticleCommentController {
 
     private final ArticleCommentRepository articleCommentRepository;
     private final ArticleRepository articleRepository;
 
-    public ArticleCommentController(ArticleCommentRepository articleCommentRepository, ArticleRepository articleRepository) {
-        this.articleCommentRepository = articleCommentRepository;
-        this.articleRepository = articleRepository;
-    }
     @PostMapping("/{articleId}/comments")
     public String addComment(@PathVariable Long articleId, ArticleCommentRequest articleCommentRequest) {
         log.info(articleCommentRequest.toString());
