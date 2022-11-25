@@ -58,4 +58,11 @@ class HospitalRepositoryTest {
             System.out.println(hospital.getHospitalName());
         }
     }
+
+    @Test
+    @DisplayName(" 전체 병원 데이터 수를 가져올 수 있는지 Test")
+    void getHospitalTotalCount() {
+        Long getHospitalTotalCount = hospitalRepository.countBy();
+        System.out.println(getHospitalTotalCount);
+    }
 }
