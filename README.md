@@ -1,5 +1,7 @@
+# Springboot-JPA
+> SpringBoot 를 활용한 BackEnd REST API 구축 프로젝트
 
-
+### [Swagger-Ui](http://geun.me:8888/swagger-ui/)
 
 <details>
 <summary>Board</summary>
@@ -51,3 +53,19 @@
   - \<ProjectName> \<url> \<username> \<password> \<port:port> \<DemonOpt: Y/N>
   - 입력 예시
   - springboot localhost:8080 root password 8080:8080 Y
+
+---
+
+### Commit Convention
+
+|    제목    |          설명          |
+|:--------:|:--------------------:|
+|   feat   |      새로운 기능 추가       |
+|   fix    |        버그 수정         |
+|   docs   |        문서 수정         |
+|  style   |        코드 포맷팅        |
+| refactor |       코드 리펙토링        |
+|   test   |   테스트 및 테스트 코드 관련    |
+|  chore   | 빌드 및  패키지 매니저  수정 관련 |
+
+---
