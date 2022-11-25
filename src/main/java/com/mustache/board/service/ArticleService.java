@@ -8,8 +8,6 @@ import com.mustache.board.repository.ArticleRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
-import java.util.Optional;
-
 @Service
 @RequiredArgsConstructor
 public class ArticleService {
@@ -17,8 +15,7 @@ public class ArticleService {
     private final ArticleRepository articleRepository;
 
     public ArticleResponse getArticleResponse(Long id) {
-        Optional<Article> optArticle = articleRepository.findById(id);
-        Article article = optArticle.get();
+        Article article = articleRepository.findById(id).orElseThrow(() -> new RuntimeException("해당 게시물을 찾을 수 없습니다."));
         ArticleResponse articleResponse = new ArticleResponse(article);
         return  articleResponse;
     }
