@@ -1,7 +1,7 @@
 # Springboot-JPA
 > SpringBoot 를 활용한 BackEnd REST API 구축 프로젝트
 
-### [Swagger-Ui](http://geun.me:8888/swagger-ui/)
+### [Swagger-Ui](http://geun.me/swagger-ui/#)
 
 <details>
 <summary>Board</summary>
