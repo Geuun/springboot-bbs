@@ -1,6 +1,7 @@
 package com.mustache.board.controller.hospital;
 
 import com.mustache.board.domain.hospital.dto.HospitalResponse;
+import com.mustache.board.domain.hospital.dto.HospitalTotalCountResponse;
 import com.mustache.board.service.HospitalService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -19,6 +20,15 @@ public class HospitalRestController {
     @GetMapping("/{id}")
     public ResponseEntity<HospitalResponse> getHospital(@PathVariable Integer id) { // ResponseEntity : Dto 타입
         HospitalResponse hospitalResponse = hospitalService.getHospital(id); // DTO
-        return ResponseEntity.ok().body(hospitalResponse); // Return은 DTO로
+        return ResponseEntity
+                .ok()
+                .body(hospitalResponse); // Return은 DTO로
+    }
+
+    @GetMapping("/totalcounts")
+    public ResponseEntity<HospitalTotalCountResponse> getHospitalTotalCount() {
+        return ResponseEntity
+                .ok()
+                .body(hospitalService.getHospitalTotalCount());
     }
 }

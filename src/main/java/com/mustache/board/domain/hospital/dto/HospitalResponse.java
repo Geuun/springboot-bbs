@@ -1,5 +1,6 @@
 package com.mustache.board.domain.hospital.dto;
 
+import com.mustache.board.domain.hospital.entity.Hospital;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -10,7 +11,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class HospitalResponse {
-    private Integer id;
+    private Integer hospitalId;
     private String roadNameAddress;
     private String hospitalName;
     private Integer patientRoomCount;
@@ -22,16 +23,18 @@ public class HospitalResponse {
     // Service Layer
     private String businessStatusName;
 
-
-    public HospitalResponse(Integer id, String roadNameAddress, String hospitalName, Integer patientRoomCount, Integer totalNumberOfBeds, String businessTypeName, Float totalAreaSize, String phoneNum) {
-        this.id = id;
-        this.roadNameAddress = roadNameAddress;
-        this.hospitalName = hospitalName;
-        this.patientRoomCount = patientRoomCount;
-        this.totalNumberOfBeds = totalNumberOfBeds;
-        this.businessTypeName = businessTypeName;
-        this.totalAreaSize = totalAreaSize;
-        this.phoneNum = phoneNum;
+    // Entity -> DTO
+    public static HospitalResponse of(Hospital hospital) {
+        return HospitalResponse.builder()
+                .hospitalId(hospital.getId())
+                .roadNameAddress(hospital.getRoadNameAddress())
+                .hospitalName(hospital.getHospitalName())
+                .patientRoomCount(hospital.getPatientRoomCount())
+                .totalNumberOfBeds(hospital.getTotalNumberOfBeds())
+                .businessTypeName(hospital.getBusinessTypeName())
+                .totalAreaSize(hospital.getTotalAreaSize())
+                .phoneNum(hospital.getPhoneNum())
+                .build();
     }
 
     public void setBusinessStatusName(String businessStatusName) {

@@ -23,4 +23,7 @@ public interface HospitalRepository extends JpaRepository<Hospital, Integer> {
 
     // Test 주소(roadNameAddress) + 업태구분명(businessType)
     List<Hospital> findByRoadNameAddressContainingAndBusinessTypeNameContaining(String roadNameAddress, String businessTypesName);
+
+    // Get Hospital Total Count
+    Long countBy();
 }

@@ -43,7 +43,7 @@ class HospitalRestControllerTest {
          * }
          */
         HospitalResponse hospitalResponse = HospitalResponse
-                .builder().id(7777)
+                .builder().hospitalId(7777)
                 .roadNameAddress("충청남도 천안시 서북구 성거읍 성거길 89")
                 .hospitalName("참조은한의원")
                 .patientRoomCount(0)

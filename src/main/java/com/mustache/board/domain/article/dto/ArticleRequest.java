@@ -11,10 +11,10 @@ public class ArticleRequest {
     private String contents;
 
     // Entity -> Dto
-    public ArticleRequest(String title, String contents) {
-        this.title = title;
-        this.contents = contents;
-    }
+//    public ArticleRequest(String title, String contents) {
+//        this.title = title;
+//        this.contents = contents;
+//    }
 
     // Dto() -> Entity
     public Article toEntity() {
