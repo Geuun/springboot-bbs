@@ -2,10 +2,8 @@ package com.mustache.board.domain.hospital.entity;
 
 import lombok.Getter;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Getter
@@ -26,4 +24,7 @@ public class Hospital {
     private Integer totalNumberOfBeds;
     private Integer businessStatusCode;
     private Float totalAreaSize;
+
+    @OneToMany(mappedBy = "hospital", fetch = FetchType.LAZY)
+    private List<Review> reives;
 }
