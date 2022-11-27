@@ -1,14 +1,13 @@
 package com.mustache.board.controller.hospital;
 
-import com.mustache.board.domain.hospital.dto.HospitalResponse;
-import com.mustache.board.domain.hospital.dto.HospitalTotalCountResponse;
-import com.mustache.board.domain.hospital.dto.ReviewAddRequest;
-import com.mustache.board.domain.hospital.dto.ReviewAddResponse;
+import com.mustache.board.domain.hospital.dto.*;
 import com.mustache.board.service.HospitalService;
 import com.mustache.board.service.ReviewService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RequiredArgsConstructor
 @RestController
@@ -33,10 +32,17 @@ public class HospitalRestController {
                 .body(hospitalService.getHospitalTotalCount());
     }
 
-    @PostMapping("/{id}/reviews")
+    @PostMapping("/{id}/reviews") // {id} 값의 병원에 댓글 추가
     public ResponseEntity<ReviewAddResponse> addReview(@RequestBody ReviewAddRequest reviewAddRequest) {
         return  ResponseEntity
                 .ok()
                 .body(reviewService.addReview(reviewAddRequest));
+    }
+
+    @GetMapping("/{id}/reviews") //id값의 병원 리뷰만 확인
+    public ResponseEntity<List<ReviewResponse>> getReviewHospitalId(@PathVariable Integer id) {
+        return ResponseEntity
+                .ok()
+                .body(reviewService.getReviewByHospitalId(id));
     }
 }
