@@ -1,8 +1,8 @@
 package com.mustache.board.controller;
 
-import com.mustache.board.controller.hospital.HospitalRestController;
-import com.mustache.board.domain.hospital.dto.HospitalResponse;
-import com.mustache.board.service.HospitalService;
+import com.dev.board.app.hospital.controller.HospitalRestController;
+import com.dev.board.app.hospital.dao.dto.HospitalResponse;
+import com.dev.board.app.hospital.service.HospitalService;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;

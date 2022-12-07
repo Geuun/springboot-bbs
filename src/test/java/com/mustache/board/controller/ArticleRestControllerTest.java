@@ -1,12 +1,12 @@
 package com.mustache.board.controller;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.mustache.board.controller.article.ArticleRestController;
-import com.mustache.board.domain.article.dto.ArticleAddRequest;
-import com.mustache.board.domain.article.dto.ArticleAddResponse;
-import com.mustache.board.domain.article.dto.ArticleCommentResponse;
-import com.mustache.board.domain.article.dto.ArticleResponse;
-import com.mustache.board.service.ArticleService;
+import com.dev.board.app.article.controller.ArticleRestController;
+import com.dev.board.app.article.dao.dto.ArticleAddRequest;
+import com.dev.board.app.article.dao.dto.ArticleAddResponse;
+import com.dev.board.app.article.dao.dto.ArticleCommentResponse;
+import com.dev.board.app.article.dao.dto.ArticleResponse;
+import com.dev.board.app.article.service.ArticleService;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
