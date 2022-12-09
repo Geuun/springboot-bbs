@@ -1,6 +1,6 @@
 package com.dev.board.app.user.repository;
 
-import com.dev.board.app.user.dao.entity.User;
+import com.dev.board.app.user.data.entity.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Optional;

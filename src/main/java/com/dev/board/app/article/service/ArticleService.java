@@ -1,10 +1,10 @@
 package com.dev.board.app.article.service;
 
 import com.dev.board.app.article.repository.ArticleRepository;
-import com.dev.board.app.article.dao.dto.ArticleAddRequest;
-import com.dev.board.app.article.dao.dto.ArticleAddResponse;
-import com.dev.board.app.article.dao.dto.ArticleResponse;
-import com.dev.board.app.article.dao.entity.Article;
+import com.dev.board.app.article.data.dto.ArticleAddRequest;
+import com.dev.board.app.article.data.dto.ArticleAddResponse;
+import com.dev.board.app.article.data.dto.ArticleResponse;
+import com.dev.board.app.article.data.entity.Article;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 

@@ -1,9 +1,9 @@
 package com.dev.board.app.article.controller;
 
 import com.dev.board.app.article.service.ArticleService;
-import com.dev.board.app.article.dao.dto.ArticleAddRequest;
-import com.dev.board.app.article.dao.dto.ArticleAddResponse;
-import com.dev.board.app.article.dao.dto.ArticleResponse;
+import com.dev.board.app.article.data.dto.ArticleAddRequest;
+import com.dev.board.app.article.data.dto.ArticleAddResponse;
+import com.dev.board.app.article.data.dto.ArticleResponse;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;

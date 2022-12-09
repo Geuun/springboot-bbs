@@ -1,6 +1,6 @@
 package com.dev.board.app.hospital.controller;
 
-import com.dev.board.app.hospital.dao.dto.*;
+import com.dev.board.app.hospital.data.dto.*;
 import com.dev.board.app.hospital.service.HospitalService;
 import com.dev.board.app.hospital.service.ReviewService;
 import lombok.RequiredArgsConstructor;

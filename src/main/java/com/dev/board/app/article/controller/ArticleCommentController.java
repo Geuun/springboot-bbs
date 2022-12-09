@@ -1,8 +1,8 @@
 package com.dev.board.app.article.controller;
 
-import com.dev.board.app.article.dao.dto.ArticleCommentRequest;
-import com.dev.board.app.article.dao.entity.Article;
-import com.dev.board.app.article.dao.entity.ArticleComment;
+import com.dev.board.app.article.data.dto.ArticleCommentRequest;
+import com.dev.board.app.article.data.entity.Article;
+import com.dev.board.app.article.data.entity.ArticleComment;
 import com.dev.board.app.article.repository.ArticleCommentRepository;
 import com.dev.board.app.article.repository.ArticleRepository;
 import lombok.RequiredArgsConstructor;

@@ -1,7 +1,8 @@
 package com.dev.board.app.user.controller;
 
-import com.dev.board.app.user.dao.dto.UserDto;
-import com.dev.board.app.user.dao.dto.UserJoinRequest;
+import com.dev.board.app.user.data.dto.UserDto;
+import com.dev.board.app.user.data.dto.UserJoinRequest;
+import com.dev.board.app.user.data.dto.UserLoginRequest;
 import com.dev.board.app.user.exception.ErrorCode;
 import com.dev.board.app.user.exception.UserAppException;
 import com.dev.board.app.user.service.UserService;
@@ -73,5 +74,73 @@ class UserControllerTest {
                         .content(objectMapper.writeValueAsBytes(userJoinRequest)))
                 .andDo(print())
                 .andExpect(status().isConflict());
+    }
+
+    @Test
+    @DisplayName("Login 실패 - Id 없음")
+    @WithMockUser
+    void login_fail_id_not_found() throws Exception {
+
+        UserLoginRequest userLoginRequest = UserLoginRequest.builder()
+                .userName("wrongUserName")
+                .password("1234")
+                .build();
+
+        when(userService.loginUser(any(), any()))
+                .thenThrow(new UserAppException(ErrorCode.NOT_FOUND, ""));
+
+        mockMvc.perform(post("/api/v1/users/login")
+                        .with(csrf())
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(objectMapper.writeValueAsBytes(userLoginRequest)))
+                .andDo(print())
+                .andExpect(status().isNotFound());
+    }
+
+    @Test
+    @DisplayName("Login 실패 - Password 틀림")
+    @WithMockUser
+    void login_fail_wrong_password() throws Exception {
+
+        UserLoginRequest userLoginRequest = UserLoginRequest.builder()
+                .userName("wrongUserName")
+                .password("1234")
+                .build();
+
+        when(userService.loginUser(any(), any()))
+                .thenThrow(new UserAppException(ErrorCode.INVALID_PASSWORD, ""));
+
+        mockMvc.perform(post("/api/v1/users/login")
+                        .with(csrf())
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(objectMapper.writeValueAsBytes(userLoginRequest)))
+                .andDo(print())
+                .andExpect(status().isBadRequest());
+    }
+
+    @Test
+    @DisplayName("Login - 성공")
+    @WithMockUser
+    void login_success() throws Exception {
+
+        String userName = "testName";
+        String password = "testPwd";
+        String token = userService.loginUser(userName, password);
+        System.out.println("token : " + token);
+
+        UserLoginRequest userLoginRequest = UserLoginRequest.builder()
+                .userName(userName)
+                .password(password)
+                .build();
+
+        when(userService.loginUser(userName, password))
+                .thenReturn(token);
+
+        mockMvc.perform(post("/api/v1/users/login")
+                        .with(csrf())
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(objectMapper.writeValueAsBytes(userLoginRequest)))
+                .andExpect(status().isOk())
+                .andDo(print());
     }
 }

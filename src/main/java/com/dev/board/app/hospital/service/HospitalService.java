@@ -1,8 +1,8 @@
 package com.dev.board.app.hospital.service;
 
-import com.dev.board.app.hospital.dao.dto.HospitalResponse;
-import com.dev.board.app.hospital.dao.dto.HospitalTotalCountResponse;
-import com.dev.board.app.hospital.dao.entity.Hospital;
+import com.dev.board.app.hospital.data.dto.HospitalResponse;
+import com.dev.board.app.hospital.data.dto.HospitalTotalCountResponse;
+import com.dev.board.app.hospital.data.entity.Hospital;
 import com.dev.board.app.hospital.repository.HospitalRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
