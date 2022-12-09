@@ -1,7 +1,7 @@
 package com.dev.board.app.article.controller;
 
-import com.dev.board.app.article.dao.dto.ArticleRequest;
-import com.dev.board.app.article.dao.entity.Article;
+import com.dev.board.app.article.data.dto.ArticleRequest;
+import com.dev.board.app.article.data.entity.Article;
 import com.dev.board.app.article.repository.ArticleRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;

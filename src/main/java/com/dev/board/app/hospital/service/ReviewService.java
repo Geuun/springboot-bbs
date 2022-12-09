@@ -1,12 +1,12 @@
 package com.dev.board.app.hospital.service;
 
-import com.dev.board.app.hospital.dao.dto.ReviewResponse;
-import com.dev.board.app.hospital.dao.entity.Review;
+import com.dev.board.app.hospital.data.dto.ReviewResponse;
+import com.dev.board.app.hospital.data.entity.Review;
 import com.dev.board.app.hospital.repository.HospitalRepository;
 import com.dev.board.app.hospital.repository.ReviewRepository;
-import com.dev.board.app.hospital.dao.dto.ReviewAddRequest;
-import com.dev.board.app.hospital.dao.dto.ReviewAddResponse;
-import com.dev.board.app.hospital.dao.entity.Hospital;
+import com.dev.board.app.hospital.data.dto.ReviewAddRequest;
+import com.dev.board.app.hospital.data.dto.ReviewAddResponse;
+import com.dev.board.app.hospital.data.entity.Hospital;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 

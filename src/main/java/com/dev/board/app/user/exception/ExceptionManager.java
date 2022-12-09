@@ -1,6 +1,6 @@
 package com.dev.board.app.user.exception;
 
-import com.dev.board.app.user.dao.Response;
+import com.dev.board.app.user.data.Response;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ExceptionHandler;

@@ -1,7 +1,7 @@
 package com.dev.board.app.hospital.repository;
 
-import com.dev.board.app.hospital.dao.entity.Review;
-import com.dev.board.app.hospital.dao.entity.Hospital;
+import com.dev.board.app.hospital.data.entity.Review;
+import com.dev.board.app.hospital.data.entity.Hospital;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;

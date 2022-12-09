@@ -1,7 +1,7 @@
 package com.dev.board.app.user.controller;
 
-import com.dev.board.app.user.dao.Response;
-import com.dev.board.app.user.dao.dto.*;
+import com.dev.board.app.user.data.Response;
+import com.dev.board.app.user.data.dto.*;
 import com.dev.board.app.user.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.PostMapping;

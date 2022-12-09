@@ -1,8 +1,8 @@
 package com.dev.board.app.user.service;
 
-import com.dev.board.app.user.dao.dto.UserDto;
-import com.dev.board.app.user.dao.dto.UserJoinRequest;
-import com.dev.board.app.user.dao.entity.User;
+import com.dev.board.app.user.data.dto.UserDto;
+import com.dev.board.app.user.data.dto.UserJoinRequest;
+import com.dev.board.app.user.data.entity.User;
 import com.dev.board.app.user.exception.ErrorCode;
 import com.dev.board.app.user.exception.UserAppException;
 import com.dev.board.app.user.repository.UserRepository;

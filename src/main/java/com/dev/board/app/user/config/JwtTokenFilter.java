@@ -1,6 +1,6 @@
 package com.dev.board.app.user.config;
 
-import com.dev.board.app.user.dao.entity.User;
+import com.dev.board.app.user.data.entity.User;
 import com.dev.board.app.user.service.UserService;
 import com.dev.board.global.utils.JwtTokenUtils;
 import lombok.RequiredArgsConstructor;

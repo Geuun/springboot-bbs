@@ -1,6 +1,6 @@
 package com.dev.board.app.hospital.controller;
 
-import com.dev.board.app.hospital.dao.entity.Hospital;
+import com.dev.board.app.hospital.data.entity.Hospital;
 import com.dev.board.app.hospital.repository.HospitalRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.Page;

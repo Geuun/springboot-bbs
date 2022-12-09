@@ -1,6 +1,6 @@
 package com.dev.board.app.hospital.repository;
 
-import com.dev.board.app.hospital.dao.entity.Hospital;
+import com.dev.board.app.hospital.data.entity.Hospital;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
