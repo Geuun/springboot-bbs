@@ -6,7 +6,10 @@ import com.dev.board.app.user.dao.entity.User;
 import com.dev.board.app.user.exception.ErrorCode;
 import com.dev.board.app.user.exception.UserAppException;
 import com.dev.board.app.user.repository.UserRepository;
+import com.dev.board.global.utils.JwtTokenUtils;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -14,6 +17,12 @@ import org.springframework.stereotype.Service;
 public class UserService {
 
     private final UserRepository userRepository;
+    private final BCryptPasswordEncoder encoder;
+
+    @Value("${jwt.token.secret}")
+    private String secretKey;
+
+    private long expiredTimeMs = 1000 * 60 * 60; // 1 hour
 
     public UserDto joinUser(UserJoinRequest userJoinRequest) {
         /**
@@ -32,5 +41,28 @@ public class UserService {
                 .password(savedUser.getPassword())
                 .emailAddress(savedUser.getEmailAddress())
                 .build();
+    }
+
+    public User getUserByUserName(String userName) {
+        return userRepository.findByUserName(userName)
+                .orElseThrow(() -> new UserAppException(ErrorCode.NOT_FOUND, "해당 유저가 존재하지 않습니다."));
+    }
+
+    public String loginUser(String userName, String password) {
+        /**
+         * userName이 있는지 check 없다면 Exception 처리
+         * Password 일치 확인 후 Token 발급
+         */
+        User user = userRepository.findByUserName(userName)
+                .orElseThrow(() ->new UserAppException(ErrorCode.NOT_FOUND, String.format("%s User was not found.", userName)));
+
+        if (!encoder.matches(password, user.getPassword())) {
+            throw new UserAppException(ErrorCode.INVALID_PASSWORD, "The Password is wrong.");
+        }
+
+        // token 발급
+        String token = JwtTokenUtils.generateToken(userName, secretKey, expiredTimeMs);
+
+        return token;
     }
 }

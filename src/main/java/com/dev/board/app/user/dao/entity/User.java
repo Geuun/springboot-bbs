@@ -1,5 +1,6 @@
 package com.dev.board.app.user.dao.entity;
 
+import com.dev.board.app.user.dao.UserRole;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -21,5 +22,8 @@ public class User {
     private String userName;
     private String password;
     private String emailAddress;
+
+    @Enumerated(EnumType.STRING)
+    private UserRole userRole;
 }
 

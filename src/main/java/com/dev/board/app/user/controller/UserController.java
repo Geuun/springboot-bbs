@@ -1,9 +1,7 @@
 package com.dev.board.app.user.controller;
 
 import com.dev.board.app.user.dao.Response;
-import com.dev.board.app.user.dao.dto.UserDto;
-import com.dev.board.app.user.dao.dto.UserJoinRequest;
-import com.dev.board.app.user.dao.dto.UserJoinResponse;
+import com.dev.board.app.user.dao.dto.*;
 import com.dev.board.app.user.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -28,5 +26,11 @@ public class UserController {
         UserDto userDto = userService.joinUser(userJoinRequest);
         UserJoinResponse userJoinResponse = new UserJoinResponse(userDto.getUserName(), userDto.getEmailAddress());
         return Response.success(userJoinResponse);
+    }
+
+    @PostMapping("/login")
+    public Response<UserLoginResponse> loginUser(@RequestBody UserLoginRequest userLoginRequest) {
+        String token = userService.loginByToken(userLoginRequest.getUserName(), userLoginRequest.getPassword());
+        return Response.success(new UserLoginResponse(token));
     }
 }
