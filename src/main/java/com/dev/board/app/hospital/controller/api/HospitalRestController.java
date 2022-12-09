@@ -1,4 +1,4 @@
-package com.dev.board.app.hospital.controller;
+package com.dev.board.app.hospital.controller.api;
 
 import com.dev.board.app.hospital.data.dto.*;
 import com.dev.board.app.hospital.service.HospitalService;

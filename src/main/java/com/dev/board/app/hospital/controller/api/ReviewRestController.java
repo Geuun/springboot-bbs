@@ -1,4 +1,4 @@
-package com.dev.board.app.hospital.controller;
+package com.dev.board.app.hospital.controller.api;
 
 import com.dev.board.app.hospital.service.ReviewService;
 import lombok.RequiredArgsConstructor;

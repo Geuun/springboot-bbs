@@ -1,4 +1,4 @@
-package com.dev.board.app.hospital.controller;
+package com.dev.board.app.hospital.controller.view;
 
 import com.dev.board.app.hospital.data.entity.Hospital;
 import com.dev.board.app.hospital.repository.HospitalRepository;
