@@ -12,7 +12,7 @@ import java.util.List;
 @RequiredArgsConstructor
 @RestController
 @RequestMapping("/api/v1/hospitals")
-public class HospitalRestController {
+public class HospitalController {
 
     private final HospitalService hospitalService; // HospitalRestController가 HosptialService를 의존하게 변경
     private final ReviewService reviewService;
