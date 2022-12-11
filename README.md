@@ -1,6 +1,25 @@
 # Springboot-JPA
 > SpringBoot 를 활용한 BackEnd REST API 구축 프로젝트
 
+---
+
+## ER Diagram
+
+### ERD
+![hospital-review](https://user-images.githubusercontent.com/89567475/206830887-f816028d-427a-457f-bc92-0375c44eb670.svg)
+
+---
+
+## Service PipeLine
+
+### PipeLine 
+
+![Server-PipeLine](https://user-images.githubusercontent.com/89567475/206860761-41ccf245-93eb-43ab-9152-2fc440d77297.svg)
+
+---
+
+## RESTAPI END - Points
+
 ### [Swagger-Ui](http://geun.me/swagger-ui/#)
 
 <details>
@@ -26,7 +45,7 @@
 <summary>Korea Nationwide Hospital List</summary>
 <div>
 
-### 전국 병원 조회 페이지
+### 전국 병원 조회 및 리뷰
 
 - UI를 통해 아래의 기능 지원
   - 전국 병원 이름 및 도로명 주소 조회
@@ -39,13 +58,17 @@
 
 ---
 
-### `deploy.sh` 사용법
+## Deploy Shell Script
+
+<details>
+<summary> <u>deploy.sh</u> 사용법 </summary>
+<div>
 
 ![스크린샷 2022-11-16 오전 11 00 02](https://user-images.githubusercontent.com/89567475/202065074-969a1f25-c0e8-4de9-8260-c1f81bbe35c9.png)
 
 - `$ bash deploy.sh`
   - deploy 작업 자동화 쉘스크립트
-  
+
 - 실행 조건
   - 프로젝트 명 == 이미지 태그 == 컨테이너 이름
   - url, username, password => 환경변수
@@ -53,6 +76,9 @@
   - \<ProjectName> \<url> \<username> \<password> \<port:port> \<DemonOpt: Y/N>
   - 입력 예시
   - springboot localhost:8080 root password 8080:8080 Y
+
+</div>
+</details>
 
 ---
 

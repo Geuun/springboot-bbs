@@ -1,6 +1,6 @@
 package com.dev.board.app.hospital.controller;
 
-import com.dev.board.app.hospital.controller.HospitalRestController;
+import com.dev.board.app.hospital.controller.api.HospitalRestController;
 import com.dev.board.app.hospital.data.dto.HospitalResponse;
 import com.dev.board.app.hospital.service.HospitalService;
 import org.junit.jupiter.api.DisplayName;

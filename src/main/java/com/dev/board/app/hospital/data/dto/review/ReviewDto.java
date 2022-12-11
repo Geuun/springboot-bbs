@@ -10,12 +10,12 @@ import lombok.NoArgsConstructor;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class ReviewResponse {
+public class ReviewDto {
     private String reviewTitle; //리뷰 타이틀
     private String reviewAuthor; //리뷰 작성자
     private String reviewContent; //리뷰 콘텐츠
 
-    public ReviewResponse(Review review) {
+    public ReviewDto(Review review) {
         this.reviewTitle = review.getTitle();
         this.reviewAuthor = review.getUserName();
         this.reviewContent = review.getContent();
