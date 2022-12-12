@@ -1,12 +1,26 @@
-# 기본이미지 arm64v8 gradle로 변경
-FROM arm64v8/gradle:7.4-jdk11 AS builder
+###############################################################################################
+##
+##  Record for me in the future (:D)
+##  If you're still building and using the server on RaspberryPi
+##  Check the contents below
+##  Server architecture : arm64(arrch64) == arm64/v8
+##  So we need an image that supports arm64/v8
+##  
+##  Example)
+##  Check https://hub.docker.com/_/gradle OS/ARCH tab :)
+##  (If the tool you are going to use does not support arm, Search on the DockerHub)
+##  Then to use CI/CD you have to build multi-cpu architecture for every architecture !
+##
+###############################################################################################
+
+FROM 7.6-jdk11-jammy AS builder
 WORKDIR /build
 
-# 그래들 파일이 변경되었을 때만 새롭게 의존패키지 다운로드 받게함.
+# Enables new dependency packages to be downloaded only when Gradle files are changed
 COPY build.gradle settings.gradle /build/
 RUN gradle build -x test --parallel --continue > /dev/null 2>&1 || true
 
-# 빌더 이미지에서 애플리케이션 빌드
+# Building Applications from Builder Images
 COPY . /build
 RUN gradle build -x test --parallel
 
@@ -14,12 +28,12 @@ RUN gradle build -x test --parallel
 FROM openjdk:11.0-slim
 WORKDIR /app
 
-# 빌더 이미지에서 jar 파일만 복사
+# Copy only jar files from the builder image
 COPY --from=builder /build/build/libs/*-SNAPSHOT.jar ./app.jar
 
 EXPOSE 8080
 
-# root 대신 nobody 권한으로 실행
+# Run with 'Nobody' permission instead of 'root'
 USER nobody
 ENTRYPOINT [                                                \
    "java",                                                 \
